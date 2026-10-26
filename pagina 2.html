@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pantalla Dividida con Galerías</title>
+    <style>
+        /* Quita los márgenes y activa el movimiento suave de pantalla */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth; /* Hace que la pantalla baje suavemente */
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        /* Contenedor principal de los 4 cuadros */
+        .contenedor-cuadrícula {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            height: 100vh; /* Ocupa toda la pantalla inicial */
+        }
+
+        /* Estilo de los cuadros interactivos */
+        .cuadro-enlace {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            text-decoration: none; /* Quita el subrayado de enlace */
+            padding: 30px;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+
+        /* Efecto visual al pasar el mouse por encima */
+        .cuadro-enlace:hover {
+            transform: scale(0.98);
+            opacity: 0.9;
+        }
+
+        /* Colores de los 4 cuadros */
+        .cuadro-1 { background-color: #3498db; }
+        .cuadro-2 { background-color: #e74c3c; }
+        .cuadro-3 { background-color: #2ecc71; }
+        .cuadro-4 { background-color: #f1c40f; }
+
+        .cuadro-enlace h2 { font-size: 26px; margin-bottom: 10px; }
+        .cuadro-enlace p { font-size: 16px; opacity: 0.9; }
+
+        /* --- ESTILOS DE LAS SECCIONES DE ABAJO (DONDE VAN LAS IMÁGENES) --- */
+        .seccion-galeria {
+            min-height: 100vh; /* Cada sección de fotos ocupa una pantalla entera */
+            padding: 60px 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Fondos claros para las zonas de imágenes */
+        #galeria-azul { background-color: #ebf5fb; }
+        #galeria-roja { background-color: #fdedec; }
+        #galeria-verde { background-color: #e8f8f5; }
+        #galeria-amarilla { background-color: #fef9e7; }
+
+        .seccion-galeria h2 {
+            font-size: 32px;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        /* Contenedor de las imágenes en fila */
+        .caja-imagenes {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        /* Estilo y tamaño de tus imágenes */
+        .caja-imagenes img {
+            width: 300px;
+            height: 200px;
+            object-fit: cover; /* Evita que las imágenes se deformen */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        /* Botón para volver arriba */
+        .btn-volver {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .btn-volver:hover { background-color: #555; }
+    </style>
+</head>
+<body>
+
+    <!-- 1. BLOQUE DE LOS 4 CUADROS (PANTALLA PRINCIPAL) -->
+    <div class="contenedor-cuadrícula">
+        
+        <a href="#galeria-azul" class="cuadro-enlace cuadro-1">
+            <h2>Maquina de cortar pelo</h2>
+            <p>Es un Simulador generado por App inventor que simula la vibracion de una máquina</p>
+        </a>
+
+        <a href="#galeria-roja" class="cuadro-enlace cuadro-2">
+            <h2>Restaurante</h2>
+            <p>Juego de scrach</p>
+        </a>
+
+        <a href="#galeria-verde" class="cuadro-enlace cuadro-3">
+            <h2>cortadora de fruta</h2>
+            <p>La fruta va cayendo mientras la cortas con una espada</p>
+        </a>
+
+        <a href="#galeria-amarilla" class="cuadro-enlace cuadro-4">
+            <h2></h2>
+            <p></p>
+        </a>
+
+    </div>
+
+    <!-- 2. BLOQUE DE LAS IMÁGENES (ABAJO DE LOS CUADROS) -->
+
+    <!-- SECCIÓN AZUL -->
+    <div id="galeria-azul" class="seccion-galeria">
+        <h2>Barberia</h2>
+        <div class="caja-imagenes">
+            <!-- REEMPLAZA "tu-imagen1.jpg" POR LA RUTA REAL DE TUS FOTOS -->
+            <img src="maquina 1.jpg" alt="Foto Azul 1">
+            <img src="maquina2.jpg" alt="Foto Azul 2">
+            <img src="maquina3.jpg" alt="Foto Azul 3">
+        </div>
+        <a href="#" class="btn-volver">↑ Volver Arriba</a>
+    </div>
+
+    <!-- SECCIÓN ROJA -->
+    <div id="galeria-roja" class="seccion-galeria">
+        <h2>Restaurante</h2>
+        <div class="caja-imagenes">
+            <img src="comida.jpg" alt="Foto Roja 1">
+            <img src="decoracion.jpg" alt="Foto Roja 2">
+        </div>
+        <a href="#" class="btn-volver">↑ Volver Arriba</a>
+    </div>
+
+    <!-- SECCIÓN VERDE -->
+    <div id="galeria-verde" class="seccion-galeria">
+        <h2>cortadora de fruta</h2>
+        <div class="caja-imagenes">
+            <img src="https://picsum.photos" alt="Foto Verde 1">
+            <img src="https://picsum.photos" alt="Foto Verde 2">
+        </div>
+        <a href="#" class="btn-volver">↑ Volver Arriba</a>
+    </div>
+
+    <!-- SECCIÓN AMARILLA -->
+    <div id="galeria-amarilla" class="seccion-galeria">
+        <h2>Galería Amarilla</h2>
+        <div class="caja-imagenes">
+            <img src="https://picsum.photos" alt="Foto Amarilla 1">
+            <img src="https://picsum.photos" alt="Foto Amarilla 2">
+        </div>
+        <a href="#" class="btn-volver">↑ Volver Arriba</a>
+    </div>
+
+</body>
+</html>
